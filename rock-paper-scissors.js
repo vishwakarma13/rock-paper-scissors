@@ -10,7 +10,7 @@ function getComputerChoice () {
 // Logic to get human choice
 
 function getHumanChoice () {
-    let humRes= prompt("Write \"Stone\", \"Paper\" or \"Scissors\" (case sensitive)");
+    let humRes= prompt("Write \"Rock\", \"Paper\" or \"Scissors\" (case sensitive)");
     return humRes;
 }
 
@@ -22,17 +22,19 @@ let computerScore =0;
 //Logic for a single round
 
 function playRound(humanChoice, computerChoice) {
+
     if (humanChoice===computerChoice) {
     console.log("it's a tie");
 }
+
 else if (humanChoice==="Paper" && computerChoice==="Rock" || humanChoice==="Rock" && computerChoice==="Scissors" || humanChoice==="Scissors" && computerChoice==="Paper") 
     {
-    console.log(`Player 1 (Human Wins) ${humanChoice} beats ${computerChoice}`)
+    console.log(`Player 1 (Human Wins), ${humanChoice} beats ${computerChoice} `)
     return "Player 1 Winner";
 }
 
 else {
-    console.log(`Player 2 (computer Wins) ${computerChoice} beats ${humanChoice}`)
+    console.log(`Player 2 (computer Wins), ${computerChoice} beats ${humanChoice} `)
     return "Player 2 Winner";
 }
 
@@ -41,3 +43,4 @@ else {
 const humanSelection = getHumanChoice();
 const computerSelection = getComputerChoice();
 
+playRound(humanSelection, computerSelection);
