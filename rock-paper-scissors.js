@@ -14,14 +14,17 @@ function getHumanChoice () {
     return humRes;
 }
 
-// Score tracking
+// Five round playGame function
 
+function playGame(){
+   
+// Score tracking
 let humanScore =0;
 let computerScore =0;
 
 //Logic for a single round
 
-function playRound(humanChoice, computerChoice) {
+function playRound (humanChoice, computerChoice) {
 
     if (humanChoice===computerChoice) {
     console.log("it's a tie");
@@ -43,4 +46,23 @@ else {
 const humanSelection = getHumanChoice().toLowerCase();
 const computerSelection = getComputerChoice().toLowerCase();
 
-playRound(humanSelection, computerSelection);
+
+}
+
+for (let i=1; i<6; i++){
+playGame();
+    if (playRound()==="Player 1 Winner"){
+        humanScore +=1;
+        console.log(humanScore);
+        console.log(computerScore);
+    }
+    else if (playRound()==="Player 2 Winner"){
+        computerScore +=1;
+        console.log(humanScore);
+        console.log(computerScore);
+    }
+    else {
+        console.log("No change " +humanScore);
+        console.log("No change " +computerScore);
+    }
+}
