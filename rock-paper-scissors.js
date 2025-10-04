@@ -8,9 +8,8 @@ function getComputerChoice () {
 }
 
 // Logic to get human choice
-let humanchoiceindex;
 
 function gethumanchoice () {
-    let humanchoice= prompt("Write Stone, Paper or Scissors (case sensitive)") 
+    let humanchoice= prompt("Write \"Stone\", \"Paper\" or \"Scissors\" (case sensitive)") 
     console.log(humanchoice);
 }
