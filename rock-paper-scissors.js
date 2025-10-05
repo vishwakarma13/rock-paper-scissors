@@ -16,42 +16,48 @@ function getHumanChoice () {
 
 // Five round playGame function
 // Score tracking outside the function to prevent score reset
-    let humanScore =0;
-    let computerScore =0;
+let humanScore =0;
+let computerScore =0;
 
 function playGame(){
-    console.log("Round "+ roundcount)
+    console.log("Round "+roundcount)//prints Round number before every round
     //Logic for a single round
     function playRound (humanChoice, computerChoice) {
+
         if (humanChoice===computerChoice) {
         console.log("It's a Tie");
+        console.log("Final Score Player 1: "+humanScore+" Points");
+        console.log("Final Score Player 2: "+computerScore+" Points");
         console.log("") //add space between rounds
-    }
-    else if (humanChoice==="paper" && computerChoice==="rock" || humanChoice==="rock" && computerChoice==="scissors" || humanChoice==="scissors" && computerChoice==="paper") 
+        }
+
+        else if (humanChoice==="paper" && computerChoice==="rock" || humanChoice==="rock" && computerChoice==="scissors" || humanChoice==="scissors" && computerChoice==="paper") 
         {
         console.log(`Player 1 Won, ${humanChoice} beats ${computerChoice} `)
         humanScore +=1;
-        console.log("Player 1 Final Score: "+humanScore);
-        console.log("Player 2 Final Score: "+computerScore);
+        console.log("Final Score Player 1: "+humanScore+" Points");
+        console.log("Final Score Player 2: "+computerScore+" Points");
         console.log("") //add space between rounds
-        return "Player 1 Won";
-        
-    }
-    else {
-        console.log(`Player 2 Won, ${computerChoice} beats ${humanChoice} `)
-        computerScore +=1;
-        console.log("Player 1 Final Score: "+humanScore);
-        console.log("Player 2 Final Score: "+computerScore);
-        console.log("") //add space between rounds
-        return "Player 2 Won";
-        
-    }
-    }
+        return "Player 1 Won";  
+        }
+
+        else {
+            console.log(`Player 2 Won, ${computerChoice} beats ${humanChoice} `)
+            computerScore +=1;
+            console.log("Final Score Player 1: "+humanScore+" Points");
+            console.log("Final Score Player 2: "+computerScore+" Points");
+            console.log("") //add space between rounds
+            return "Player 2 Won";    
+        }
+    }//ends playRound()
+
     const humanSelection = getHumanChoice().toLowerCase();
     const computerSelection = getComputerChoice().toLowerCase();
-    playRound(humanSelection, computerSelection); //everytime playGame() runs it calls the playround function
 
-}
+    playRound(humanSelection, computerSelection); //playRound() calling with arguments passed
+
+}//ends playGame()
+
 roundcount=0;
 for (let i=1; i<6; i++){
     
