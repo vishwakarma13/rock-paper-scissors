@@ -25,20 +25,24 @@ function playGame(){
     function playRound (humanChoice, computerChoice) {
         if (humanChoice===computerChoice) {
         console.log("It's a Tie");
+        console.log("") //add space between rounds
     }
     else if (humanChoice==="paper" && computerChoice==="rock" || humanChoice==="rock" && computerChoice==="scissors" || humanChoice==="scissors" && computerChoice==="paper") 
         {
         console.log(`Player 1 Won, ${humanChoice} beats ${computerChoice} `)
         humanScore +=1;
-        console.log("Player 1 score: "+humanScore);
-        console.log("Player 2 score: "+computerScore);
+        console.log("Player 1 Final Score: "+humanScore);
+        console.log("Player 2 Final Score: "+computerScore);
+        console.log("") //add space between rounds
         return "Player 1 Won";
+        
     }
     else {
         console.log(`Player 2 Won, ${computerChoice} beats ${humanChoice} `)
         computerScore +=1;
-        console.log("Player 1 score: "+humanScore);
-        console.log("Player 2 score: "+computerScore);
+        console.log("Player 1 Final Score: "+humanScore);
+        console.log("Player 2 Final Score: "+computerScore);
+        console.log("") //add space between rounds
         return "Player 2 Won";
         
     }
