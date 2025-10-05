@@ -22,7 +22,7 @@ let computerScore =0;
 function playGame(){
     console.log("Round "+roundcount)//prints Round number before every round
     //Logic for a single round
-    function playRound (humanChoice, computerChoice) {
+    function playRound (humanChoice, computerChoice) { //these two are paremeters (not actual arguments) on which every logical operation is performed
 
         if (humanChoice===computerChoice) {
         console.log("It's a Tie");
@@ -34,7 +34,7 @@ function playGame(){
         else if (humanChoice==="paper" && computerChoice==="rock" || humanChoice==="rock" && computerChoice==="scissors" || humanChoice==="scissors" && computerChoice==="paper") 
         {
         console.log(`Player 1 Won, ${humanChoice} beats ${computerChoice} `)
-        humanScore +=1;
+        humanScore +=1; //score update
         console.log("Final Score Player 1: "+humanScore+" Points");
         console.log("Final Score Player 2: "+computerScore+" Points");
         console.log("") //add space between rounds
@@ -43,7 +43,7 @@ function playGame(){
 
         else {
             console.log(`Player 2 Won, ${computerChoice} beats ${humanChoice} `)
-            computerScore +=1;
+            computerScore +=1; //score update
             console.log("Final Score Player 1: "+humanScore+" Points");
             console.log("Final Score Player 2: "+computerScore+" Points");
             console.log("") //add space between rounds
@@ -54,7 +54,7 @@ function playGame(){
     const humanSelection = getHumanChoice().toLowerCase();
     const computerSelection = getComputerChoice().toLowerCase();
 
-    playRound(humanSelection, computerSelection); //playRound() calling with arguments passed
+    playRound(humanSelection, computerSelection); // playGame() is calling this i.e. playRound() 
 
 }//ends playGame()
 
