@@ -4,14 +4,14 @@ function getComputerChoice () {
     let choices = ["Rock", "Paper", "Scissors"];
     let compChoiceIndex = Math.floor(Math.random()*3);
     let compResult = (choices[compChoiceIndex]);
-    return compResult;
+    return compResult; // necessary return statement as it would be used for function value assignment
 }
 
 // Logic to get human choice
 
 function getHumanChoice () {
     let humRes= prompt("Write \"Rock\", \"Paper\" or \"Scissors\" (case insensitive)");
-    return humRes;
+    return humRes; // necessary return statement as it would be used for function value assignment
 }
 
 // Five round playGame function
@@ -38,7 +38,7 @@ function playGame(){
         console.log("Final Score Player 1: "+humanScore+" Points");
         console.log("Final Score Player 2: "+computerScore+" Points");
         console.log("") //add space between rounds
-        return "Player 1 Won";  
+          
         }
 
         else {
@@ -47,7 +47,7 @@ function playGame(){
             console.log("Final Score Player 1: "+humanScore+" Points");
             console.log("Final Score Player 2: "+computerScore+" Points");
             console.log("") //add space between rounds
-            return "Player 2 Won";    
+                
         }
     }//ends playRound()
 
