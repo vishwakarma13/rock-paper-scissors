@@ -15,46 +15,36 @@ function getHumanChoice () {
 }
 
 // Five round playGame function
-
-function playGame(){
-   
-    // Score tracking
+// Score tracking outside the function to prevent score reset
     let humanScore =0;
     let computerScore =0;
 
+function playGame(){
+    
     //Logic for a single round
-
     function playRound (humanChoice, computerChoice) {
-
         if (humanChoice===computerChoice) {
-        console.log("it's a tie");
-        console.log("No change in Player 1 score (human) -" +humanScore);
-        console.log("No change in Player 2 score (computer) -" +computerScore);
+        console.log("It's a Tie");
     }
-
     else if (humanChoice==="paper" && computerChoice==="rock" || humanChoice==="rock" && computerChoice==="scissors" || humanChoice==="scissors" && computerChoice==="paper") 
         {
-        console.log(`Player 1 (Human Wins), ${humanChoice} beats ${computerChoice} `)
+        console.log(`Player 1 Won, ${humanChoice} beats ${computerChoice} `)
         humanScore +=1;
-        console.log(humanScore);
-        console.log(computerScore);
-        return "Player 1 Winner";
+        console.log("Player 1 score: "+humanScore);
+        console.log("Player 2 score: "+computerScore);
+        return "Player 1 Won";
     }
-
     else {
-        console.log(`Player 2 (computer Wins), ${computerChoice} beats ${humanChoice} `)
+        console.log(`Player 2 Won, ${computerChoice} beats ${humanChoice} `)
         computerScore +=1;
-        console.log(humanScore);
-        console.log(computerScore);
-        return "Player 2 Winner";
+        console.log("Player 1 score: "+humanScore);
+        console.log("Player 2 score: "+computerScore);
+        return "Player 2 Won";
         
     }
-
     }
-
     const humanSelection = getHumanChoice().toLowerCase();
     const computerSelection = getComputerChoice().toLowerCase();
-
     playRound(humanSelection, computerSelection); //everytime playGame() runs it calls the playround function
 
 }
