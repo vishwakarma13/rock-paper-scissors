@@ -20,7 +20,7 @@ function getHumanChoice () {
     let computerScore =0;
 
 function playGame(){
-    
+    console.log("Round "+ roundcount)
     //Logic for a single round
     function playRound (humanChoice, computerChoice) {
         if (humanChoice===computerChoice) {
@@ -48,7 +48,9 @@ function playGame(){
     playRound(humanSelection, computerSelection); //everytime playGame() runs it calls the playround function
 
 }
-
+roundcount=0;
 for (let i=1; i<6; i++){
+    
+    roundcount= roundcount+1;
     playGame();  // for logic is executed first according to which playGame() runs 5 times
 }
