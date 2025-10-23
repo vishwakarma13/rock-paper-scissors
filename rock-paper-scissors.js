@@ -34,6 +34,7 @@ let computerScore =0;
 let roundcount =0;
 
     function playGame(){
+    roundcount +=1;
     console.log("Round "+roundcount);// to display roundnumber
     
         winnerDeciderfunction(humanRes, getComputerChoice().toLowerCase()); 
