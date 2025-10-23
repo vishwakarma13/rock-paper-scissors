@@ -41,24 +41,27 @@ let roundcount =0;
 
         function winnerDeciderfunction (humanChoice, computerChoice) {
             if (humanChoice===computerChoice) {
+            console.log("Human Chose "+humanChoice+".  Computer Chose "+computerChoice)
             console.log("It's a Tie");
-            console.log("Final Score Player 1: "+humanScore+" Points");
-            console.log("Final Score Player 2: "+computerScore+" Points");
+            console.log("Final Score Human: "+humanScore+" Points");
+            console.log("Final Score Computer: "+computerScore+" Points");
             console.log("");
             }
             else if (humanChoice==="paper" && computerChoice==="rock" || humanChoice==="rock" && computerChoice==="scissors" || humanChoice==="scissors" && computerChoice==="paper") 
             {
-            console.log(`Player 1 Won, ${humanChoice} beats ${computerChoice} `);
+            console.log("Human Chose "+humanChoice+".  Computer Chose "+computerChoice)
+            console.log(`Human Won, ${humanChoice} beats ${computerChoice} `);
             humanScore +=1; //score update
-            console.log("Final Score Player 1: "+humanScore+" Points");
-            console.log("Final Score Player 2: "+computerScore+" Points");
+            console.log("Final Score Human: "+humanScore+" Points");
+            console.log("Final Score Computer: "+computerScore+" Points");
             console.log("");
             }
             else {
-                console.log(`Player 2 Won, ${computerChoice} beats ${humanChoice} `);
+                console.log("Human Chose "+humanChoice+".  Computer Chose "+computerChoice)
+                console.log(`Computer Won, ${computerChoice} beats ${humanChoice} `);
                 computerScore +=1; //score update
-                console.log("Final Score Player 1: "+humanScore+" Points");
-                console.log("Final Score Player 2: "+computerScore+" Points");
+                console.log("Final Score Human: "+humanScore+" Points");
+                console.log("Final Score Computer: "+computerScore+" Points");
                 console.log("");       
             }
         }//ends winnerDeciderfunction()
