@@ -8,59 +8,70 @@ function getComputerChoice () {
 }
 
 // Logic to get human choice
-
-function getHumanChoice () {
-    let humRes= prompt("Write \"Rock\", \"Paper\" or \"Scissors\" (case insensitive)");
-    return humRes; // necessary return statement as it would be used for function value assignment
+humanRes= "";
+function getHumanChoice(text){
+    
+    humanRes = text.toLowerCase();
+    playGame();
 }
 
-// Five round playGame function
-// Score tracking outside the function to prevent score reset
+let rockButton = document.querySelector("#rockButton");//selection is required for using evenlistener
+
+rockButton.addEventListener("click",()=> {getHumanChoice("ROCK")})
+
+let paperButton = document.querySelector("#paperButton");//selection is required for using evenlistener
+
+paperButton.addEventListener("click",()=> {getHumanChoice("PAPER")})
+
+let scissorsButton = document.querySelector("#scissorsButton");//selection is required for using evenlistener
+
+scissorsButton.addEventListener("click",()=> {getHumanChoice("SCISSORS")})
+
+
+// to track score
 let humanScore =0;
-let computerScore =0;
+let computerScore =0; 
+let roundcount =0;
 
-function playGame(){
-    console.log("Round "+roundcount);//prints Round number before every round
-    //Logic for a single round
-    function playRound (humanChoice, computerChoice) { //these two are paremeters (not actual arguments) on which every logical operation is performed
+    function playGame(){
+    console.log("Round "+roundcount);// to display roundnumber
+    
+        winnerDeciderfunction(humanRes, getComputerChoice().toLowerCase()); 
 
-        if (humanChoice===computerChoice) {
-        console.log("It's a Tie");
-        console.log("Final Score Player 1: "+humanScore+" Points");
-        console.log("Final Score Player 2: "+computerScore+" Points");
-        console.log(""); //add space between rounds
-        }
-
-        else if (humanChoice==="paper" && computerChoice==="rock" || humanChoice==="rock" && computerChoice==="scissors" || humanChoice==="scissors" && computerChoice==="paper") 
-        {
-        console.log(`Player 1 Won, ${humanChoice} beats ${computerChoice} `);
-        humanScore +=1; //score update
-        console.log("Final Score Player 1: "+humanScore+" Points");
-        console.log("Final Score Player 2: "+computerScore+" Points");
-        console.log(""); //add space between rounds
-          
-        }
-
-        else {
-            console.log(`Player 2 Won, ${computerChoice} beats ${humanChoice} `);
-            computerScore +=1; //score update
+        function winnerDeciderfunction (humanChoice, computerChoice) {
+            if (humanChoice===computerChoice) {
+            console.log("It's a Tie");
             console.log("Final Score Player 1: "+humanScore+" Points");
             console.log("Final Score Player 2: "+computerScore+" Points");
-            console.log(""); //add space between rounds
-                
-        }
-    }//ends playRound()
+            console.log("");
+            }
+            else if (humanChoice==="paper" && computerChoice==="rock" || humanChoice==="rock" && computerChoice==="scissors" || humanChoice==="scissors" && computerChoice==="paper") 
+            {
+            console.log(`Player 1 Won, ${humanChoice} beats ${computerChoice} `);
+            humanScore +=1; //score update
+            console.log("Final Score Player 1: "+humanScore+" Points");
+            console.log("Final Score Player 2: "+computerScore+" Points");
+            console.log("");
+            }
+            else {
+                console.log(`Player 2 Won, ${computerChoice} beats ${humanChoice} `);
+                computerScore +=1; //score update
+                console.log("Final Score Player 1: "+humanScore+" Points");
+                console.log("Final Score Player 2: "+computerScore+" Points");
+                console.log("");       
+            }
+        }//ends winnerDeciderfunction()
 
-    const humanSelection = getHumanChoice().toLowerCase();
-    const computerSelection = getComputerChoice().toLowerCase();
+        
 
-    playRound(humanSelection, computerSelection); // playGame() is calling this i.e. playRound() 
+    }//ends playGame()
 
-}//ends playGame()
 
-roundcount=0;
-for (let i=1; i<6; i++){
-    
-    roundcount= roundcount+1;
-    playGame();  // for logic is executed first according to which playGame() runs 5 times
-}
+
+
+
+
+
+
+
+
