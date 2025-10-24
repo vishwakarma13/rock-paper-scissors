@@ -50,16 +50,18 @@ let roundcount =0;
         let roundMessage = winnerDeciderfunction(humanRes, getComputerChoice().toLowerCase()); 
 
         function winnerDeciderfunction (humanChoice, computerChoice) {
-            detailMessage= "Human Chose "+humanChoice+".  Computer Chose "+computerChoice;
+            let choiceText = "You chose "+humanChoice+" and  Computer chose "+computerChoice;
             
 
             if (humanChoice===computerChoice) {
             let text1 = "It's a Tie";
-            let text2 = "Final Score Human: "+humanScore+" Points";
-            let text3 = "Final Score Computer: "+computerScore+" Points";
+            let text2 = "You Scored: "+humanScore+" Points";
+            let text3 = "Computer Scored: "+computerScore+" Points";
             paraSelector1.textContent = text1;
             paraSelector2.textContent = text2;
             paraSelector3.textContent = text3;
+            paraSelector4.textContent = choiceText; //shows the selected choices of both
+
             }
 
 
@@ -67,23 +69,25 @@ let roundcount =0;
             {
 
             humanScore +=1; //score update
-            let text1 = `Human Won, ${humanChoice} beats ${computerChoice} `
-            let text2 = "Final Score Human: "+humanScore+" Points"
-            let text3 = "Final Score Computer: "+computerScore+" Points"
+            let text1 = "You Won!"
+            let text2 = "You Scored: "+humanScore+" Points"
+            let text3 = "Computer Scored: "+computerScore+" Points"
             paraSelector1.textContent = text1;
             paraSelector2.textContent = text2;
             paraSelector3.textContent = text3;
+            paraSelector4.textContent = choiceText; //shows the selected choices of both
             }
 
             else {
 
             computerScore +=1; //score update
-            let text1 = `Computer Won, ${computerChoice} beats ${humanChoice} `
-            let text2 = "Final Score Human: "+humanScore+" Points"
-            let text3 = "Final Score Computer: "+computerScore+" Points"
+            let text1 = "Computer Won!"
+            let text2 = "You Scored: "+humanScore+" Points"
+            let text3 = "Computer Scored: "+computerScore+" Points"
             paraSelector1.textContent = text1;
             paraSelector2.textContent = text2;
-            paraSelector3.textContent = text3;   
+            paraSelector3.textContent = text3;
+            paraSelector4.textContent = choiceText; //shows the selected choices of both
             }
 
             
