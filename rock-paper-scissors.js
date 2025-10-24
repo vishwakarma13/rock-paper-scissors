@@ -14,20 +14,20 @@ function getComputerChoice () {
 
 // Logic to get human choice
 humanRes= "";
+
 function getHumanChoice(text){
-    
     humanRes = text.toLowerCase();
-    playGame(); //calling the playgame()
-}
+    playGame();
+    }
 
-let rockButton = document.querySelector("#rockButton");//selection is required for using evenlistener
-rockButton.addEventListener("click",()=> {getHumanChoice("ROCK")})
+    let rockButton = document.querySelector("#rockButton");//selection is required for using evenlistener
+    rockButton.addEventListener("click",()=> {getHumanChoice("ROCK")})
 
-let paperButton = document.querySelector("#paperButton");//selection is required for using evenlistener
-paperButton.addEventListener("click",()=> {getHumanChoice("PAPER")})
+    let paperButton = document.querySelector("#paperButton");//selection is required for using evenlistener
+    paperButton.addEventListener("click",()=> {getHumanChoice("PAPER")})
 
-let scissorsButton = document.querySelector("#scissorsButton");//selection is required for using evenlistener
-scissorsButton.addEventListener("click",()=> {getHumanChoice("SCISSORS")})
+    let scissorsButton = document.querySelector("#scissorsButton");//selection is required for using evenlistener
+    scissorsButton.addEventListener("click",()=> {getHumanChoice("SCISSORS")})
 
 
 // to track score
@@ -79,6 +79,25 @@ let computerScore =0;
         }//ends winnerDeciderfunction()
 
          winnerDeciderfunction (humanRes, getComputerChoice().toLowerCase());//calling winnerdeciderfunction()
+
+        if (humanScore === 5 || computerScore === 5){
+            let finalWinnerText = (humanScore===5) ? "GAME OVER! YOU ARE THE GRAND WINNER" : "GAME OVER! COMPUTER IS THE GRAND WINNER"
+            
+            paraSelector1.textContent = finalWinnerText;
+            paraSelector2.textContent = `Final Score: You ${humanScore} - Computer ${computerScore}`;
+            paraSelector3.textContent = "";
+
+
+
+
+
+            //disabling the buttons
+            rockButton.disabled = true;
+            paperButton.disabled = true;
+            scissorsButton.disabled = true;
+        }
+
+
 
     }//ends playGame()
 
