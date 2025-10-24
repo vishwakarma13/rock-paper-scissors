@@ -1,3 +1,12 @@
+let paraSelector1 = document.querySelector("#para1")
+let paraSelector2 = document.querySelector("#para2")
+let paraSelector3 = document.querySelector("#para3")
+let paraSelector4 = document.querySelector("#para4")
+
+
+
+
+
 // Logic to get computer choice
 
 function getComputerChoice () {
@@ -36,34 +45,48 @@ let roundcount =0;
     function playGame(){
     roundcount +=1;
     console.log("Round "+roundcount);// to display roundnumber
+
     
-        winnerDeciderfunction(humanRes, getComputerChoice().toLowerCase()); 
+        let roundMessage = winnerDeciderfunction(humanRes, getComputerChoice().toLowerCase()); 
 
         function winnerDeciderfunction (humanChoice, computerChoice) {
+            detailMessage= "Human Chose "+humanChoice+".  Computer Chose "+computerChoice;
+            
+
             if (humanChoice===computerChoice) {
-            console.log("Human Chose "+humanChoice+".  Computer Chose "+computerChoice)
-            console.log("It's a Tie");
-            console.log("Final Score Human: "+humanScore+" Points");
-            console.log("Final Score Computer: "+computerScore+" Points");
-            console.log("");
+            let text1 = "It's a Tie";
+            let text2 = "Final Score Human: "+humanScore+" Points";
+            let text3 = "Final Score Computer: "+computerScore+" Points";
+            paraSelector1.textContent = text1;
+            paraSelector2.textContent = text2;
+            paraSelector3.textContent = text3;
             }
+
+
             else if (humanChoice==="paper" && computerChoice==="rock" || humanChoice==="rock" && computerChoice==="scissors" || humanChoice==="scissors" && computerChoice==="paper") 
             {
-            console.log("Human Chose "+humanChoice+".  Computer Chose "+computerChoice)
-            console.log(`Human Won, ${humanChoice} beats ${computerChoice} `);
+
             humanScore +=1; //score update
-            console.log("Final Score Human: "+humanScore+" Points");
-            console.log("Final Score Computer: "+computerScore+" Points");
-            console.log("");
+            let text1 = `Human Won, ${humanChoice} beats ${computerChoice} `
+            let text2 = "Final Score Human: "+humanScore+" Points"
+            let text3 = "Final Score Computer: "+computerScore+" Points"
+            paraSelector1.textContent = text1;
+            paraSelector2.textContent = text2;
+            paraSelector3.textContent = text3;
             }
+
             else {
-                console.log("Human Chose "+humanChoice+".  Computer Chose "+computerChoice)
-                console.log(`Computer Won, ${computerChoice} beats ${humanChoice} `);
-                computerScore +=1; //score update
-                console.log("Final Score Human: "+humanScore+" Points");
-                console.log("Final Score Computer: "+computerScore+" Points");
-                console.log("");       
+
+            computerScore +=1; //score update
+            let text1 = `Computer Won, ${computerChoice} beats ${humanChoice} `
+            let text2 = "Final Score Human: "+humanScore+" Points"
+            let text3 = "Final Score Computer: "+computerScore+" Points"
+            paraSelector1.textContent = text1;
+            paraSelector2.textContent = text2;
+            paraSelector3.textContent = text3;   
             }
+
+            
         }//ends winnerDeciderfunction()
 
         
