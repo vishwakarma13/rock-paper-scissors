@@ -2,6 +2,10 @@
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
+body {
+    touch-action: manipulation;
+}
+
 #game-name {
     font-size: 40px;
 }
@@ -26,6 +30,16 @@
     margin: 10px;
     font-weight: bold;
     color: white;
-    background-color: brown;
+    background-color: black;
     border-radius: 15px;
+    border: none;
+}
+
+.button:focus {
+    color: black;
+    background-color: blanchedalmond;
+}
+
+div p {
+    font-size: 40px;
 }
