@@ -16,18 +16,18 @@ function getComputerChoice () {
 humanRes= "";
 
 function getHumanChoice(text){
-    humanRes = text.toLowerCase();
+    humanRes = text;
     playGame();
     }
 
     let rockButton = document.querySelector("#rockButton");//selection is required for using evenlistener
-    rockButton.addEventListener("click",()=> {getHumanChoice("ROCK")})
+    rockButton.addEventListener("click",()=> {getHumanChoice("Rock")})
 
     let paperButton = document.querySelector("#paperButton");//selection is required for using evenlistener
-    paperButton.addEventListener("click",()=> {getHumanChoice("PAPER")})
+    paperButton.addEventListener("click",()=> {getHumanChoice("Paper")})
 
     let scissorsButton = document.querySelector("#scissorsButton");//selection is required for using evenlistener
-    scissorsButton.addEventListener("click",()=> {getHumanChoice("SCISSORS")})
+    scissorsButton.addEventListener("click",()=> {getHumanChoice("Scissors")})
 
 
 // to track score
@@ -52,7 +52,7 @@ let computerScore =0;
             }
 
 
-            else if (humanChoice==="paper" && computerChoice==="rock" || humanChoice==="rock" && computerChoice==="scissors" || humanChoice==="scissors" && computerChoice==="paper") 
+            else if (humanChoice==="Rock" && computerChoice==="Scissors" || humanChoice==="Paper" && computerChoice==="Rock" ||  humanChoice==="Scissors" && computerChoice==="Paper") 
             {
                 humanScore +=1; //score update
                 let text1 = "You Won!"
@@ -78,7 +78,7 @@ let computerScore =0;
             
         }//ends winnerDeciderfunction()
 
-         winnerDeciderfunction (humanRes, getComputerChoice().toLowerCase());//calling winnerdeciderfunction()
+         winnerDeciderfunction (humanRes, getComputerChoice());//calling winnerdeciderfunction()
 
         if (humanScore === 5 || computerScore === 5){
             let finalWinnerText = (humanScore===5) ? "GAME OVER! YOU ARE THE GRAND WINNER" : "GAME OVER! COMPUTER IS THE GRAND WINNER"
